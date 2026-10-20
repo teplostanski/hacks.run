@@ -1,3 +1,13 @@
+:root {
+  --base-orange: oklch(55% 0.13 65);
+  --base-purple: oklch(55% 0.11 310);
+  --base-green: oklch(60% 0.17 145);
+  --base-red: oklch(54% 0.2 45);
+  --base-yellow: oklch(75% 0.16 85);
+  --base-blue: oklch(60% 0.19 245);
+  --base-raspberry: oklch(60% 0.22 350);
+}
+
 @layer reset, base, layout, components;
 @layer base {
   .muted {
@@ -279,16 +289,64 @@
     inline-size: 46px;
     block-size: 46px;
     font: 1.9rem var(--mono);
-    background: light-dark(#f3eee7, #35291f);
-    border: 1px solid light-dark(#e7ddd1, #59402d);
-    color: light-dark(#96602e, #dfae7f);
     border-radius: 12px;
   }
-  .rand .project-icon {
-    background: light-dark(#eeedf5, #2c2537);
-    border-color: light-dark(#dfdce9, #493b5b);
-    color: light-dark(#76638e, #c4a9df);
+
+  .orange .project-icon {
+    background: light-dark(
+      oklch(from var(--base-orange) 95% 0.012 h),
+      oklch(from var(--base-orange) 25% 0.03 h)
+    );
+
+    border: 1px solid
+      light-dark(
+        oklch(from var(--base-orange) 90% 0.02 h),
+        oklch(from var(--base-orange) 38% 0.05 h)
+      );
+
+    color: light-dark(var(--base-orange), oklch(from var(--base-orange) 78% 0.08 h));
   }
+
+  .purple .project-icon {
+    background: light-dark(
+      oklch(from var(--base-purple) 95% 0.015 h),
+      oklch(from var(--base-purple) 23% 0.03 h)
+    );
+
+    border: 1px solid
+      light-dark(
+        oklch(from var(--base-purple) 90% 0.02 h),
+        oklch(from var(--base-purple) 35% 0.05 h)
+      );
+
+    color: light-dark(var(--base-purple), oklch(from var(--base-purple) 75% 0.09 h));
+  }
+
+  .red .project-icon {
+    background: light-dark(
+      oklch(from var(--base-red) 95% 0.015 h),
+      oklch(from var(--base-red) 22% 0.04 h)
+    );
+    border: 1px solid
+      light-dark(oklch(from var(--base-red) 88% 0.035 h), oklch(from var(--base-red) 35% 0.06 h));
+    color: light-dark(var(--base-red), oklch(from var(--base-red) 75% 0.12 h));
+  }
+
+  .raspberry .project-icon {
+    background: light-dark(
+      oklch(from var(--base-raspberry) 95% 0.015 h),
+      oklch(from var(--base-raspberry) 22% 0.04 h)
+    );
+
+    border: 1px solid
+      light-dark(
+        oklch(from var(--base-raspberry) 88% 0.035 h),
+        oklch(from var(--base-raspberry) 35% 0.06 h)
+      );
+
+    color: light-dark(var(--base-raspberry), oklch(from var(--base-raspberry) 72% 0.1 h));
+  }
+
   .project-number {
     font: 0.7rem var(--mono);
     color: var(--muted);

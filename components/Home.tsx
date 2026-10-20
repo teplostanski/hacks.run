@@ -31,6 +31,7 @@ export default function Home({ locale }: { locale: Locale }) {
       command: "curl 200ok.hacks.run/v1/ip",
       response: "192.0.2.1",
       icon: <GiHandOk />,
+      iconColor: "orange",
     },
     {
       name: "rand",
@@ -45,11 +46,12 @@ export default function Home({ locale }: { locale: Locale }) {
       command: "curl rand.hacks.run/hex/16",
       response: "a9f4c2e8b017d63f5a0c98e1247bd6f3",
       icon: <LiaRandomSolid />,
+      iconColor: "purple",
     },
     {
       name: "undevice",
       slug: "undevice",
-      url: "https://npmx.dev/package/undevice",
+      url: "https://undevice.hacks.run",
       exampleLabel: t.libraryExampleLabel,
       index: "03",
       category: t.deviceCategory,
@@ -57,8 +59,9 @@ export default function Home({ locale }: { locale: Locale }) {
       detail: t.deviceDetail,
       tags: ["Lib", "Node.js", "Edge"],
       command: "npm add undevice",
-      response: 'import { detectDevice } from "undevice";',
+      response: 'import { undevice } from "undevice";',
       icon: <BiDevices />,
+      iconColor: "raspberry",
     },
   ];
 
@@ -127,8 +130,8 @@ export default function Home({ locale }: { locale: Locale }) {
             <div className={styles["project-grid"]}>
               {projects.map((project) => (
                 <article
-                  className={`${styles.project} ${project.slug === "rand" ? styles.rand : ""}`}
                   key={project.slug}
+                  className={`${styles.project} ${styles[project.iconColor]}`}
                 >
                   <div className={styles["card-top"]}>
                     <span className={styles["project-icon"]} aria-hidden="true">
