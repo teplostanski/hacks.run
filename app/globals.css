@@ -84,11 +84,14 @@
     align-items: center;
     gap: 0.5rem;
   }
-  nav svg {
+  .nav-label {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+  nav svg:not(.external-arrow) {
     inline-size: 17px;
-    fill: none;
     stroke: currentColor;
-    stroke-width: 1.6;
   }
   .github-nav {
     display: none;
@@ -184,6 +187,14 @@
   }
 }
 @layer components {
+  .external-arrow {
+    inline-size: 0.75em;
+    block-size: 0.75em;
+    overflow: visible;
+    vertical-align: baseline;
+    fill: currentColor;
+    stroke: none;
+  }
   .background {
     position: absolute;
     inset: 0 0 auto;
@@ -352,7 +363,7 @@
     & a {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: baseline;
     }
     & span {
       font: 1.5rem var(--mono);
@@ -434,7 +445,8 @@
     border-block-start: 1px solid var(--line);
     & a {
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
+      padding-block: 12px;
       gap: 12px;
       min-block-size: 44px;
       font-size: 0.8rem;
@@ -475,6 +487,7 @@
   .status-destination {
     font: 0.72rem var(--mono);
     display: flex;
+    align-items: baseline;
     gap: 12px;
   }
   @media (hover: hover) {

@@ -2,6 +2,15 @@ import { PixelField } from "./PixelField";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSelect } from "./LanguageProvider";
 import { messages, localePath, type Locale } from "../lib/i18n";
+import { PiPulse, PiPulseThin, PiGithubLogo } from "react-icons/pi";
+import { LiaRandomSolid } from "react-icons/lia";
+import { GiHandOk } from "react-icons/gi";
+import { RiArrowRightUpLine, RiArrowDownLine } from "react-icons/ri";
+
+function ExternalArrow() {
+  return <RiArrowRightUpLine className="external-arrow" viewBox="5.98291 6 12.02079 12.0208" />;
+}
+
 export default function Home({ locale }: { locale: Locale }) {
   const t = messages[locale];
   const projects = [
@@ -15,7 +24,7 @@ export default function Home({ locale }: { locale: Locale }) {
       tags: ["HTTP", t.debugging, "API"],
       command: "curl 200ok.hacks.run/v1/ip",
       response: "192.0.2.1",
-      icon: "↗",
+      icon: <GiHandOk />,
     },
     {
       name: "rand",
@@ -27,9 +36,10 @@ export default function Home({ locale }: { locale: Locale }) {
       tags: ["Nano ID", "Hex", "Base64"],
       command: "curl rand.hacks.run/hex/16",
       response: "a9f4c2e8b017d63f5a0c98e1247bd6f3",
-      icon: "⤨",
+      icon: <LiaRandomSolid />,
     },
   ];
+
   return (
     <>
       <div className="background" aria-hidden="true">
@@ -50,14 +60,12 @@ export default function Home({ locale }: { locale: Locale }) {
           </a>
           <nav aria-label={t.navigation}>
             <a href="https://status.hacks.run/" className="status-link">
-              <svg viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M2 12h4l3-8 6 16 3-8h4" />
-              </svg>
-              {t.status}
-              <span aria-hidden="true">↗</span>
+              <PiPulse size={17} />
+              <span className="nav-label">{t.status}</span>
             </a>
             <a className="github-nav" href="https://github.com/teplostanski">
-              GitHub <span aria-hidden="true">↗</span>
+              <PiGithubLogo size={17} />
+              <span className="nav-label">GitHub</span>
             </a>
             <div className="header-controls">
               <LanguageSelect />
@@ -77,7 +85,7 @@ export default function Home({ locale }: { locale: Locale }) {
             </h1>
             <p className="intro-copy">{t.intro}</p>
             <a className="explore" href="#projects">
-              {t.explore} <span aria-hidden="true">↓</span>
+              {t.explore} <span aria-hidden="true"><RiArrowDownLine size={22}/></span>
             </a>
             <span className="hero-note" aria-hidden="true">
               {t.note}
@@ -104,7 +112,9 @@ export default function Home({ locale }: { locale: Locale }) {
                   <h3>
                     <a href={`https://${project.slug}.hacks.run/`}>
                       {project.name}
-                      <span aria-hidden="true">↗</span>
+                      <span aria-hidden="true">
+                        <ExternalArrow />
+                      </span>
                     </a>
                   </h3>
                   <p className="card-lead">{project.description}</p>
@@ -129,14 +139,20 @@ export default function Home({ locale }: { locale: Locale }) {
                   </ul>
                   <div className="card-footer">
                     <a className="open-project" href={`https://${project.slug}.hacks.run/`}>
-                      {t.open} <span aria-hidden="true">↗</span>
+                      {t.open}{" "}
+                      <span aria-hidden="true">
+                        <ExternalArrow />
+                      </span>
                     </a>
                     <a
                       className="source-link"
                       href={`https://github.com/teplostanski/${project.slug}`}
                       aria-label={`${project.name} ${t.onGithub}`}
                     >
-                      GitHub <span aria-hidden="true">↗</span>
+                      GitHub{" "}
+                      <span aria-hidden="true">
+                        <ExternalArrow />
+                      </span>
                     </a>
                   </div>
                 </article>
@@ -145,23 +161,26 @@ export default function Home({ locale }: { locale: Locale }) {
           </section>
           <a className="status-banner" href="https://status.hacks.run/">
             <span className="status-icon" aria-hidden="true">
-              ⌁
+              <PiPulseThin size={32} />
             </span>
             <span>
               <strong>{t.statusTitle}</strong>
               <span>{t.statusDescription}</span>
             </span>
             <span className="status-destination">
-              status.hacks.run <span aria-hidden="true">↗</span>
+              status.hacks.run{" "}
+              <span aria-hidden="true">
+                <ExternalArrow />
+              </span>
             </span>
           </a>
         </main>
         <footer>
           <span>© {new Date().getFullYear()} hacks.run</span>
           <a href="https://github.com/teplostanski">
-            {t.madeBy} <span>@teplostanski</span> <span aria-hidden="true">↗</span>
+            {t.madeBy} <span>@teplostanski</span>
           </a>
-          <span className="footer-note">{t.footer}</span>
+          <span className="footer-note">happy hacking.</span>
         </footer>
       </div>
     </>

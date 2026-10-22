@@ -1,6 +1,7 @@
 "use client";
 // Adapted from https://github.com/danielroe/forges, MIT.
 import { useEffect, useRef } from "react";
+
 export function PixelField() {
   const canvas = useRef<HTMLCanvasElement>(null);
   useEffect(() => {

@@ -33,6 +33,7 @@ export default async function RootLayout({
             __html: `(function(){var theme;try{theme=localStorage.getItem('hacks.run.theme')}catch{}document.documentElement.dataset.theme=theme==='dark'||(theme!=='light'&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'})()`,
           }}
         />
+        <script>console.log("ฅ₍^•⩊ •マⳊ &gt;_ Happy hacking!");</script>
       </head>
       <body>
         <LanguageProvider locale={locale}>{children}</LanguageProvider>
