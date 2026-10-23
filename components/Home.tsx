@@ -7,6 +7,7 @@ import { PiPulse, PiPulseThin, PiGithubLogo } from "react-icons/pi";
 import { LiaRandomSolid } from "react-icons/lia";
 import { GiHandOk } from "react-icons/gi";
 import { RiArrowRightUpLine, RiArrowDownLine } from "react-icons/ri";
+import { BiDevices } from "react-icons/bi";
 
 function ExternalArrow() {
   return (
@@ -20,11 +21,13 @@ export default function Home({ locale }: { locale: Locale }) {
     {
       name: "200 OK",
       slug: "200ok",
+      url: "https://200ok.hacks.run/",
+      exampleLabel: t.exampleLabel,
       index: "01",
       category: t.httpCategory,
       description: t.httpLead,
       detail: t.httpDetail,
-      tags: ["HTTP", t.debugging, "API"],
+      tags: ["API", "HTTP", t.debugging],
       command: "curl 200ok.hacks.run/v1/ip",
       response: "192.0.2.1",
       icon: <GiHandOk />,
@@ -32,14 +35,30 @@ export default function Home({ locale }: { locale: Locale }) {
     {
       name: "rand",
       slug: "rand",
+      url: "https://rand.hacks.run/",
+      exampleLabel: t.exampleLabel,
       index: "02",
       category: t.randomCategory,
       description: t.randomLead,
       detail: t.randomDetail,
-      tags: ["Nano ID", "Hex", "Base64"],
+      tags: ["API", "Nano ID", "Hex", "Base64"],
       command: "curl rand.hacks.run/hex/16",
       response: "a9f4c2e8b017d63f5a0c98e1247bd6f3",
       icon: <LiaRandomSolid />,
+    },
+    {
+      name: "undevice",
+      slug: "undevice",
+      url: "https://npmx.dev/package/undevice",
+      exampleLabel: t.libraryExampleLabel,
+      index: "03",
+      category: t.deviceCategory,
+      description: t.deviceLead,
+      detail: t.deviceDetail,
+      tags: ["Lib", "Node.js", "Edge"],
+      command: "npm add undevice",
+      response: 'import { detectDevice } from "undevice";',
+      icon: <BiDevices />,
     },
   ];
 
@@ -101,7 +120,7 @@ export default function Home({ locale }: { locale: Locale }) {
           <section id="projects" aria-labelledby="projects-heading">
             <div className={styles["section-heading"]}>
               <h2 id="projects-heading">
-                {t.projects} <span>02</span>
+                {t.projects} <span>{String(projects.length).padStart(2, "0")}</span>
               </h2>
               <span>{t.projectsNote}</span>
             </div>
@@ -119,7 +138,7 @@ export default function Home({ locale }: { locale: Locale }) {
                   </div>
                   <p className={styles["category"]}>{project.category}</p>
                   <h3 className={styles["project-title"]}>
-                    <a href={`https://${project.slug}.hacks.run/`}>
+                    <a href={project.url}>
                       {project.name}
                       <span aria-hidden="true">
                         <ExternalArrow />
@@ -128,7 +147,7 @@ export default function Home({ locale }: { locale: Locale }) {
                   </h3>
                   <p className={styles["card-lead"]}>{project.description}</p>
                   <p className={styles["card-description"]}>{project.detail}</p>
-                  <div className={styles["terminal"]} aria-label={t.exampleLabel}>
+                  <div className={styles["terminal"]} aria-label={project.exampleLabel}>
                     <div>
                       <span className={styles["terminal-dot"]} />
                       <span className={styles["terminal-dot"]} />
@@ -147,10 +166,7 @@ export default function Home({ locale }: { locale: Locale }) {
                     ))}
                   </ul>
                   <div className={styles["card-footer"]}>
-                    <a
-                      className={styles["open-project"]}
-                      href={`https://${project.slug}.hacks.run/`}
-                    >
+                    <a className={styles["open-project"]} href={project.url}>
                       {t.open}{" "}
                       <span aria-hidden="true">
                         <ExternalArrow />

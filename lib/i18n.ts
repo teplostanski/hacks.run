@@ -1,7 +1,7 @@
 export const ru = {
   title: "hacks.run: маленькие инструменты, большие возможности",
   metaDescription:
-    "Открытые инструменты для разработчиков: отладка HTTP с 200 OK и генерация случайных данных с rand.",
+    "Открытые инструменты: отладка HTTP с 200 OK, случайные данные с rand и определение устройств с undevice.",
   skip: "Перейти к проектам",
   home: "hacks.run: главная",
   navigation: "Основная навигация",
@@ -19,7 +19,12 @@ export const ru = {
   httpDetail: "Исследуйте HTTP-запросы, тестируйте ответы и отлаживайте интеграции.",
   randomCategory: "API случайных данных",
   randomLead: "Случайность. По запросу.",
-  randomDetail: "Криптографически стойкие случайные строки и идентификаторы через простой API.",
+  randomDetail: "Криптографически стойкие случайные строки и ID через простой API.",
+  deviceCategory: "Библиотека определения устройств",
+  deviceLead: "Узнайте устройство пользователя.",
+  deviceDetail:
+    "Определяйте устройство, OS и браузер по User-Agent и заголовкам CDN в Node.js, браузере и edge-средах.",
+  libraryExampleLabel: "Пример установки и импорта",
   debugging: "Отладка",
   exampleLabel: "Пример запроса и ответа",
   example: "пример",
@@ -37,7 +42,7 @@ export type Messages = { [Key in keyof typeof ru]: string };
 export const en: Messages = {
   title: "hacks.run: small tools, big possibilities",
   metaDescription:
-    "Open-source developer tools: debug HTTP with 200 OK and generate random data with rand.",
+    "Open-source tools: debug HTTP with 200 OK, generate random data with rand, and detect devices with undevice.",
   skip: "Skip to projects",
   home: "hacks.run: home",
   navigation: "Main navigation",
@@ -55,7 +60,12 @@ export const en: Messages = {
   httpDetail: "Inspect HTTP requests, test responses, and debug integrations.",
   randomCategory: "Random data API",
   randomLead: "Randomness. On demand.",
-  randomDetail: "Cryptographically secure random strings and identifiers through a simple API.",
+  randomDetail: "Cryptographically secure random strings and IDs through a simple API.",
+  deviceCategory: "Device detection library",
+  deviceLead: "Know the device.",
+  deviceDetail:
+    "Detect devices, OS, and browsers from User-Agent and CDN headers in Node.js, browsers, and edge runtimes.",
+  libraryExampleLabel: "Installation and import example",
   debugging: "Debugging",
   exampleLabel: "Example request and response",
   example: "example",
@@ -72,7 +82,7 @@ export const en: Messages = {
 export const es: Messages = {
   title: "hacks.run: pequeñas herramientas, grandes posibilidades",
   metaDescription:
-    "Herramientas de código abierto para desarrolladores: depura HTTP con 200 OK y genera datos aleatorios con rand.",
+    "Herramientas de código abierto: depura HTTP con 200 OK, genera datos aleatorios con rand y detecta dispositivos con undevice.",
   skip: "Ir a los proyectos",
   home: "hacks.run: inicio",
   navigation: "Navegación principal",
@@ -92,6 +102,11 @@ export const es: Messages = {
   randomLead: "Aleatoriedad. A petición.",
   randomDetail:
     "Cadenas e identificadores aleatorios criptográficamente seguros mediante una API sencilla.",
+  deviceCategory: "Biblioteca de detección de dispositivos",
+  deviceLead: "Conoce el dispositivo.",
+  deviceDetail:
+    "Detecta dispositivos, sistemas operativos y navegadores mediante User-Agent y cabeceras CDN en Node.js, navegadores y entornos edge.",
+  libraryExampleLabel: "Ejemplo de instalación e importación",
   debugging: "Depuración",
   exampleLabel: "Ejemplo de petición y respuesta",
   example: "ejemplo",
@@ -108,7 +123,8 @@ export const es: Messages = {
 };
 export const zhCN: Messages = {
   title: "hacks.run: 小工具，大可能",
-  metaDescription: "面向开发者的开源工具：使用 200 OK 调试 HTTP，使用 rand 生成随机数据。",
+  metaDescription:
+    "开源工具：使用 200 OK 调试 HTTP，使用 rand 生成随机数据，使用 undevice 检测设备。",
   skip: "跳转到项目",
   home: "hacks.run：首页",
   navigation: "主导航",
@@ -127,6 +143,11 @@ export const zhCN: Messages = {
   randomCategory: "随机数据 API",
   randomLead: "随机数据，按需生成。",
   randomDetail: "通过简单的 API 生成密码学安全的随机字符串和标识符。",
+  deviceCategory: "设备检测库",
+  deviceLead: "了解用户的设备。",
+  deviceDetail:
+    "通过 User-Agent 和 CDN 请求头识别设备、操作系统和浏览器，支持 Node.js、浏览器和边缘运行时。",
+  libraryExampleLabel: "安装与导入示例",
   debugging: "调试",
   exampleLabel: "请求与响应示例",
   example: "示例",
@@ -143,7 +164,7 @@ export const zhCN: Messages = {
 export const ko: Messages = {
   title: "hacks.run: 작은 도구, 큰 가능성",
   metaDescription:
-    "개발자를 위한 오픈 소스 도구: 200 OK로 HTTP를 디버깅하고 rand로 난수 데이터를 생성하세요.",
+    "오픈 소스 도구: 200 OK로 HTTP를 디버깅하고, rand로 난수 데이터를 생성하고, undevice로 기기를 감지하세요.",
   skip: "프로젝트로 건너뛰기",
   home: "hacks.run: 홈",
   navigation: "주 탐색",
@@ -162,6 +183,11 @@ export const ko: Messages = {
   randomCategory: "난수 데이터 API",
   randomLead: "필요할 때 만드는 난수.",
   randomDetail: "간단한 API로 암호학적으로 안전한 무작위 문자열과 식별자를 생성하세요.",
+  deviceCategory: "기기 감지 라이브러리",
+  deviceLead: "사용자의 기기를 알아보세요.",
+  deviceDetail:
+    "Node.js, 브라우저, 엣지 런타임에서 User-Agent와 CDN 헤더로 기기, 운영체제, 브라우저를 감지하세요.",
+  libraryExampleLabel: "설치 및 가져오기 예시",
   debugging: "디버깅",
   exampleLabel: "요청 및 응답 예시",
   example: "예시",

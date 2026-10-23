@@ -1,3 +1,4 @@
+@layer reset, base, layout, components;
 @layer base {
   .muted {
     color: var(--muted);
