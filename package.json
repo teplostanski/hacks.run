@@ -4,31 +4,51 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview --config preview.config.ts",
     "typecheck": "tsc --noEmit",
-    "format": "vp fmt"
+    "lint": "vp lint --deny-warnings",
+    "lint:fix": "vp lint --fix --deny-warnings",
+    "format": "vp fmt",
+    "format:check": "vp fmt --check",
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck"
   },
   "dependencies": {
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6",
-    "react-icons": "^5.7.0",
-    "react-server-dom-webpack": "^19.2.6",
-    "vinext": "^1.2.0"
+    "react": "catalog:frontend",
+    "react-dom": "catalog:frontend",
+    "react-icons": "catalog:frontend",
+    "react-server-dom-webpack": "catalog:frontend",
+    "vinext": "catalog:frontend"
   },
   "devDependencies": {
-    "@types/node": "^24.0.0",
-    "@types/react": "^19.2.0",
-    "@types/react-dom": "^19.2.0",
-    "@vitejs/plugin-react": "^6.0.0",
-    "@vitejs/plugin-rsc": "^0.5.37",
-    "typescript": "^6.0.0",
-    "vite": "npm:@voidzero-dev/vite-plus-core@1.2.0",
-    "vite-plus": "^1.2.0"
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:types",
+    "@types/react-dom": "catalog:types",
+    "@vitejs/plugin-react": "catalog:build",
+    "@vitejs/plugin-rsc": "catalog:build",
+    "eslint-plugin-slop": "catalog:lint",
+    "husky": "catalog:hooks",
+    "typescript": "catalog:types",
+    "vite": "catalog:build",
+    "vite-plugin-readable-classnames": "catalog:build",
+    "vite-plus": "catalog:build"
   },
   "engines": {
     "node": ">=22.18.0"
   },
-  "packageManager": "pnpm@11.17.0"
+  "packageManager": "pnpm@12.14.0",
+  "scriptsDescription": {
+    "prepare": "Install Husky Git hooks.",
+    "dev": "Start the development server.",
+    "build": "Build and export the static site to dist/client.",
+    "preview": "Preview the production build locally.",
+    "typecheck": "Check TypeScript types without emitting files.",
+    "lint": "Check code with Oxlint; fail on warnings.",
+    "lint:fix": "Apply safe lint fixes; fail on remaining warnings or errors.",
+    "format": "Format project files with Oxfmt.",
+    "format:check": "Check formatting without modifying files.",
+    "check": "Check formatting, lint rules, and TypeScript types."
+  }
 }

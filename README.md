@@ -2,7 +2,7 @@
 
 Developer tools at [hacks.run](https://hacks.run). Built with vinext, TypeScript and Vite+.
 
-Requires Node.js 22.18+ and pnpm 11.17.0.
+Requires Node.js 22.18+ and pnpm 12+
 
 ```sh
 pnpm install --frozen-lockfile
@@ -10,7 +10,9 @@ pnpm dev
 ```
 
 ```sh
-pnpm typecheck
+pnpm check
+pnpm lint:fix
+pnpm format
 pnpm build
 pnpm preview
 ```
