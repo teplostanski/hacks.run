@@ -1,4 +1,5 @@
 "use client";
+import styles from "./LanguageSelect.module.css";
 import { createContext, useContext, type ReactNode } from "react";
 import { isLocale, localePath, localeOptions, messages, type Locale } from "../lib/i18n";
 
@@ -18,7 +19,7 @@ export function LanguageSelect() {
   const { locale, t } = useLanguage();
   return (
     <select
-      className="language-select"
+      className={styles["language-select"]}
       aria-label={t.language}
       value={locale}
       onChange={(event) => {

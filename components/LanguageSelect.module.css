@@ -1,0 +1,35 @@
+@layer components {
+  .language-select {
+    position: relative;
+    flex: none;
+    block-size: 32px;
+    padding: 6px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: light-dark(oklch(37% 0.013 285.805), oklch(92% 0.004 286.32));
+    cursor: pointer;
+    transition:
+      background-color 150ms,
+      color 150ms;
+    &:hover {
+      background: light-dark(oklch(96.7% 0.001 286.375), oklch(27.4% 0.006 286.033));
+    }
+  }
+  @media (pointer: coarse) {
+    .language-select {
+      min-block-size: 44px;
+      min-inline-size: 44px;
+    }
+  }
+}
+@layer components {
+  .language-select {
+    max-inline-size: 64px;
+    font: 0.75rem var(--mono);
+    & option {
+      color: var(--ink);
+      background: var(--paper);
+    }
+  }
+}

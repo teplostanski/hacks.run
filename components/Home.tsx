@@ -1,3 +1,4 @@
+import styles from "./Home.module.css";
 import { PixelField } from "./PixelField";
 import { ThemeToggle } from "./ThemeToggle";
 import { LanguageSelect } from "./LanguageProvider";
@@ -8,7 +9,9 @@ import { GiHandOk } from "react-icons/gi";
 import { RiArrowRightUpLine, RiArrowDownLine } from "react-icons/ri";
 
 function ExternalArrow() {
-  return <RiArrowRightUpLine className="external-arrow" viewBox="5.98291 6 12.02079 12.0208" />;
+  return (
+    <RiArrowRightUpLine className={styles["external-arrow"]} viewBox="5.98291 6 12.02079 12.0208" />
+  );
 }
 
 export default function Home({ locale }: { locale: Locale }) {
@@ -42,74 +45,80 @@ export default function Home({ locale }: { locale: Locale }) {
 
   return (
     <>
-      <div className="background" aria-hidden="true">
-        <div className="hero-gradient" />
-        <div className="hero-noise" />
+      <div className={styles["background"]} aria-hidden="true">
+        <div className={styles["hero-gradient"]} />
+        <div className={styles["hero-noise"]} />
         <PixelField />
       </div>
-      <a className="skip" href="#projects">
+      <a className={styles["skip"]} href="#projects">
         {t.skip}
       </a>
-      <div className="shell">
-        <header>
-          <a className="brand" href={localePath(locale)} aria-label={t.home}>
-            <span className="brand-mark">
+      <div className={styles["shell"]}>
+        <header className={styles["header"]}>
+          <a className={styles["brand"]} href={localePath(locale)} aria-label={t.home}>
+            <span className={styles["brand-mark"]}>
               h<span>_</span>
             </span>
-            hacks<span className="muted">.run</span>
+            hacks<span className={styles["muted"]}>.run</span>
           </a>
-          <nav aria-label={t.navigation}>
-            <a href="https://status.hacks.run/" className="status-link">
+          <nav className={styles["nav"]} aria-label={t.navigation}>
+            <a href="https://status.hacks.run/">
               <PiPulse size={17} />
-              <span className="nav-label">{t.status}</span>
+              <span className={styles["nav-label"]}>{t.status}</span>
             </a>
-            <a className="github-nav" href="https://github.com/teplostanski">
+            <a className={styles["github-nav"]} href="https://github.com/teplostanski">
               <PiGithubLogo size={17} />
-              <span className="nav-label">GitHub</span>
+              <span className={styles["nav-label"]}>GitHub</span>
             </a>
-            <div className="header-controls">
+            <div className={styles["header-controls"]}>
               <LanguageSelect />
               <ThemeToggle />
             </div>
           </nav>
         </header>
         <main>
-          <section className="intro" aria-labelledby="headline">
-            <p className="eyebrow">
+          <section className={styles["intro"]} aria-labelledby="headline">
+            <p className={styles["eyebrow"]}>
               <span /> {t.eyebrow}
             </p>
-            <h1 id="headline">
+            <h1 className={styles["headline"]} id="headline">
               {t.headline}
               <br />
               <span>{t.headlineAccent}</span>
             </h1>
-            <p className="intro-copy">{t.intro}</p>
-            <a className="explore" href="#projects">
-              {t.explore} <span aria-hidden="true"><RiArrowDownLine size={22}/></span>
+            <p className={styles["intro-copy"]}>{t.intro}</p>
+            <a className={styles["explore"]} href="#projects">
+              {t.explore}{" "}
+              <span aria-hidden="true">
+                <RiArrowDownLine size={22} />
+              </span>
             </a>
-            <span className="hero-note" aria-hidden="true">
+            <span className={styles["hero-note"]} aria-hidden="true">
               {t.note}
               <span>_</span>
             </span>
           </section>
           <section id="projects" aria-labelledby="projects-heading">
-            <div className="section-heading">
+            <div className={styles["section-heading"]}>
               <h2 id="projects-heading">
                 {t.projects} <span>02</span>
               </h2>
               <span>{t.projectsNote}</span>
             </div>
-            <div className="project-grid">
+            <div className={styles["project-grid"]}>
               {projects.map((project) => (
-                <article className={`project ${project.slug}`} key={project.slug}>
-                  <div className="card-top">
-                    <span className="project-icon" aria-hidden="true">
+                <article
+                  className={`${styles.project} ${project.slug === "rand" ? styles.rand : ""}`}
+                  key={project.slug}
+                >
+                  <div className={styles["card-top"]}>
+                    <span className={styles["project-icon"]} aria-hidden="true">
                       {project.icon}
                     </span>
-                    <span className="project-number">/{project.index}</span>
+                    <span className={styles["project-number"]}>/{project.index}</span>
                   </div>
-                  <p className="category">{project.category}</p>
-                  <h3>
+                  <p className={styles["category"]}>{project.category}</p>
+                  <h3 className={styles["project-title"]}>
                     <a href={`https://${project.slug}.hacks.run/`}>
                       {project.name}
                       <span aria-hidden="true">
@@ -117,35 +126,38 @@ export default function Home({ locale }: { locale: Locale }) {
                       </span>
                     </a>
                   </h3>
-                  <p className="card-lead">{project.description}</p>
-                  <p className="card-description">{project.detail}</p>
-                  <div className="terminal" aria-label={t.exampleLabel}>
+                  <p className={styles["card-lead"]}>{project.description}</p>
+                  <p className={styles["card-description"]}>{project.detail}</p>
+                  <div className={styles["terminal"]} aria-label={t.exampleLabel}>
                     <div>
-                      <span className="terminal-dot" />
-                      <span className="terminal-dot" />
-                      <span className="terminal-dot" />
-                      <span className="terminal-label">{t.example}</span>
+                      <span className={styles["terminal-dot"]} />
+                      <span className={styles["terminal-dot"]} />
+                      <span className={styles["terminal-dot"]} />
+                      <span className={styles["terminal-label"]}>{t.example}</span>
                     </div>
                     <code>
-                      <span className="prompt">$ </span>
+                      <span className={styles["prompt"]}>$ </span>
                       {project.command}
                     </code>
-                    <code className="response">{project.response}</code>
+                    <code className={styles["response"]}>{project.response}</code>
                   </div>
-                  <ul className="tags" aria-label={t.features}>
+                  <ul className={styles["tags"]} aria-label={t.features}>
                     {project.tags.map((tag) => (
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
-                  <div className="card-footer">
-                    <a className="open-project" href={`https://${project.slug}.hacks.run/`}>
+                  <div className={styles["card-footer"]}>
+                    <a
+                      className={styles["open-project"]}
+                      href={`https://${project.slug}.hacks.run/`}
+                    >
                       {t.open}{" "}
                       <span aria-hidden="true">
                         <ExternalArrow />
                       </span>
                     </a>
                     <a
-                      className="source-link"
+                      className={styles["source-link"]}
                       href={`https://github.com/teplostanski/${project.slug}`}
                       aria-label={`${project.name} ${t.onGithub}`}
                     >
@@ -159,15 +171,15 @@ export default function Home({ locale }: { locale: Locale }) {
               ))}
             </div>
           </section>
-          <a className="status-banner" href="https://status.hacks.run/">
-            <span className="status-icon" aria-hidden="true">
+          <a className={styles["status-banner"]} href="https://status.hacks.run/">
+            <span className={styles["status-icon"]} aria-hidden="true">
               <PiPulseThin size={32} />
             </span>
             <span>
               <strong>{t.statusTitle}</strong>
               <span>{t.statusDescription}</span>
             </span>
-            <span className="status-destination">
+            <span className={styles["status-destination"]}>
               status.hacks.run{" "}
               <span aria-hidden="true">
                 <ExternalArrow />
@@ -175,12 +187,12 @@ export default function Home({ locale }: { locale: Locale }) {
             </span>
           </a>
         </main>
-        <footer>
+        <footer className={styles["footer"]}>
           <span>© {new Date().getFullYear()} hacks.run</span>
           <a href="https://github.com/teplostanski">
             {t.madeBy} <span>@teplostanski</span>
           </a>
-          <span className="footer-note">happy hacking.</span>
+          <span className={styles["footer-note"]}>happy hacking.</span>
         </footer>
       </div>
     </>

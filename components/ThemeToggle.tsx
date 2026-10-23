@@ -1,4 +1,5 @@
 "use client";
+import styles from "./ThemeToggle.module.css";
 import { useEffect, useState } from "react";
 import { LuMoon, LuSun } from "react-icons/lu";
 
@@ -44,15 +45,15 @@ export function ThemeToggle() {
 
   return (
     <button
-      className="theme-toggle"
+      className={styles["theme-toggle"]}
       type="button"
       onClick={toggle}
       aria-label={t.darkTheme}
       aria-pressed={dark}
       title={t.toggleTheme}
     >
-      <LuMoon className="theme-moon" />
-      <LuSun className="theme-sun" />
+      <LuMoon className={styles["theme-moon"]} />
+      <LuSun className={styles["theme-sun"]} />
     </button>
   );
 }

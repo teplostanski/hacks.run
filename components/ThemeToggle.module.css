@@ -1,0 +1,44 @@
+@layer components {
+  .theme-toggle {
+    position: relative;
+    flex: none;
+    block-size: 32px;
+    padding: 6px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    color: light-dark(oklch(37% 0.013 285.805), oklch(92% 0.004 286.32));
+    cursor: pointer;
+    transition:
+      background-color 150ms,
+      color 150ms;
+    &:hover {
+      background: light-dark(oklch(96.7% 0.001 286.375), oklch(27.4% 0.006 286.033));
+    }
+  }
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    inline-size: 32px;
+    & svg {
+      grid-area: 1 / 1;
+      inline-size: 20px;
+      block-size: 20px;
+    }
+  }
+  @media (pointer: coarse) {
+    .theme-toggle {
+      min-block-size: 44px;
+      min-inline-size: 44px;
+    }
+  }
+  .theme-sun {
+    visibility: hidden;
+  }
+  :global(:root[data-theme="dark"]) .theme-sun {
+    visibility: visible;
+  }
+  :global(:root[data-theme="dark"]) .theme-moon {
+    visibility: hidden;
+  }
+}

@@ -1,5 +1,8 @@
 "use client";
-// Adapted from https://github.com/danielroe/forges, MIT.
+/*
+Adapted from https://github.com/danielroe/forges, MIT.
+*/
+import styles from "./PixelField.module.css";
 import { useEffect, useRef } from "react";
 
 export function PixelField() {
@@ -175,5 +178,5 @@ export function PixelField() {
       cancelAnimationFrame(frame);
     };
   }, []);
-  return <canvas ref={canvas} className="pixel-field" aria-hidden="true" />;
+  return <canvas ref={canvas} className={styles["pixel-field"]} aria-hidden="true" />;
 }
