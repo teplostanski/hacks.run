@@ -13,7 +13,9 @@
     "lint:fix": "vp lint --fix --deny-warnings",
     "format": "vp fmt",
     "format:check": "vp fmt --check",
-    "check": "pnpm format:check && pnpm lint && pnpm typecheck"
+    "check": "pnpm format:check && pnpm lint && pnpm typecheck",
+    "vp:migrate": "vp migrate",
+    "vp:install": "vp install"
   },
   "dependencies": {
     "react": "catalog:frontend",
